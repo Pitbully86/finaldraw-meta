@@ -1,10 +1,10 @@
 {
   "payload": {
-    "notes": "Auto-update, unified activation, licence deactivation, modern UI.",
-    "published": "2026-08-11",
-    "sha256": "ecec738ce94e0c2e80a9448b6d9fb125ef37b8d3ef09afecc49925f03dc9aa94",
-    "url": "https://github.com/Pitbully86/finaldraw-meta/releases/download/v1.13.0/FinalDraw-Setup-1.13.0.exe",
-    "version": "1.13.0"
+    "notes": "ACV-policy detection with proof, coverage-aware parsing, Filed column, review fixes, GMG 360 publisher.",
+    "published": "2026-08-15",
+    "sha256": "ec1d91f47cf00826f17855c82472179267b3ca7d13731540114ef677ae93441c",
+    "url": "https://github.com/Pitbully86/finaldraw-meta/releases/download/v1.13.1/FinalDraw-Setup-1.13.1.exe",
+    "version": "1.13.1"
   },
-  "signature": "tIQREwBsu16DMDdgHvJhJ9ilkOMvAvY3YmJAzx6JgoS3SxXD09kz8122V6BMaaIAE5uKBWQ/wdpZ4Wj1TXNsAA=="
+  "signature": "CsmEc3EtH4ggE2snlKa4pt74CM/T0WJxV28pEWCzFq8qVw5C1qNG1otnF1Jc4/k/I0JNQpgs8PRwHVPuYnFyDg=="
 }
