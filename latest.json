@@ -1,10 +1,10 @@
 {
   "payload": {
-    "notes": "ACV-policy detection with proof, coverage-aware parsing, Filed column, review fixes, GMG 360 publisher, fixed self-update relay.",
+    "notes": "Version shown in the sidebar.",
     "published": "2026-08-15",
-    "sha256": "988f6571ced410732f3ded4a215c30a1de941b3c501b4d22cda1eaed1375e777",
-    "url": "https://github.com/Pitbully86/finaldraw-meta/releases/download/v1.13.1/FinalDraw-Setup-1.13.1.exe",
-    "version": "1.13.1"
+    "sha256": "fe1996f8032c974bbe67743f5c5c8ffa1fd6ed7de4f06a8099d7df0b2a2665fb",
+    "url": "https://github.com/Pitbully86/finaldraw-meta/releases/download/v1.13.2/FinalDraw-Setup-1.13.2.exe",
+    "version": "1.13.2"
   },
-  "signature": "SnR5DYoewQxbBodnvraKYdCurQRUSNitT2NH8vHS0RgW7xdieqSpecLWAICfrFMnv7bcAxVe66it+E+jSlkdAA=="
+  "signature": "Ufd2joGQkmhnXZ47n6SJzH1HixX9HniUqcklHBR7lBdxAsMKIzyWArlhB90mwl9Abb4nPFHjmz0/UXBjFOoCBA=="
 }
