@@ -1,10 +1,10 @@
 {
   "payload": {
-    "notes": "Version shown in the sidebar.",
+    "notes": "ACV claims lead with the net still owed; toolbar no longer clips the heading.",
     "published": "2026-08-15",
-    "sha256": "fe1996f8032c974bbe67743f5c5c8ffa1fd6ed7de4f06a8099d7df0b2a2665fb",
-    "url": "https://github.com/Pitbully86/finaldraw-meta/releases/download/v1.13.2/FinalDraw-Setup-1.13.2.exe",
-    "version": "1.13.2"
+    "sha256": "e0823943f925fe30b2059ce5d667f7cea50d54822065694d6536c94e2592b95b",
+    "url": "https://github.com/Pitbully86/finaldraw-meta/releases/download/v1.13.3/FinalDraw-Setup-1.13.3.exe",
+    "version": "1.13.3"
   },
-  "signature": "Ufd2joGQkmhnXZ47n6SJzH1HixX9HniUqcklHBR7lBdxAsMKIzyWArlhB90mwl9Abb4nPFHjmz0/UXBjFOoCBA=="
+  "signature": "+mycX7X5PTKyzvHt4le8ziComa1pKNxn/7mG6Gs2/D2QGSiBS3Q+aNqiZjkgxrfVO9at2HPi1MZNsSgpox0rCw=="
 }
