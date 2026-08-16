@@ -1,10 +1,10 @@
 {
   "payload": {
-    "notes": "ACV claims lead with the net still owed; toolbar no longer clips the heading.",
+    "notes": "ACV certificates show Net Claim Remaining and Prior Payments as the estimate states them.",
     "published": "2026-08-15",
-    "sha256": "e0823943f925fe30b2059ce5d667f7cea50d54822065694d6536c94e2592b95b",
-    "url": "https://github.com/Pitbully86/finaldraw-meta/releases/download/v1.13.3/FinalDraw-Setup-1.13.3.exe",
-    "version": "1.13.3"
+    "sha256": "17f8b0ec6f9f1eb74cc1ada9b613205c3cb7c8bd833b2892f1c21325971d0be7",
+    "url": "https://github.com/Pitbully86/finaldraw-meta/releases/download/v1.13.4/FinalDraw-Setup-1.13.4.exe",
+    "version": "1.13.4"
   },
-  "signature": "+mycX7X5PTKyzvHt4le8ziComa1pKNxn/7mG6Gs2/D2QGSiBS3Q+aNqiZjkgxrfVO9at2HPi1MZNsSgpox0rCw=="
+  "signature": "zSU+7ettwr8F+AwqF0Q61r21WlCldVawM2PZ9oulfQRogPzyzNOK1rcsHejyBA7bI//r3AqAV48mMHwOifp7CA=="
 }
