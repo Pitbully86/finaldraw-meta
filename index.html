@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FinalDraw — Certificates of Completion for storm restoration</title>
+<meta name="description" content="Turn a carrier insurance estimate into a correct, signed Certificate of Completion in about a minute. One-time purchase, installs on any Windows PC.">
+<link rel="icon" href="assets/icon.png">
+<!--
+  BEFORE PUBLISHING, replace the BUY placeholder URLs (search for TODO) with
+  the Lemon Squeezy checkout URL. The DOWNLOAD links are already wired to the
+  update channel's stable asset:
+  https://github.com/Pitbully86/finaldraw-meta/releases/latest/download/FinalDraw-Setup.exe
+  — it always serves the newest signed installer; nothing to update per release.
+-->
+<style>
+  :root{
+    --bg:#F5F7F8; --surface:#FFFFFF; --surface-alt:#EDF1F4;
+    --text:#16202A; --muted:#5C6B7A; --faint:#8D9BA8;
+    --border:#DDE3E8; --border-strong:#C3CDD6;
+    --primary:#1F4E79; --primary-hover:#1A4267; --primary-soft:#E8EEF4;
+    --success:#147A5E; --success-soft:#E4F2ED;
+    --warning:#A8690B; --warning-soft:#FDF3E2;
+    --danger:#B4342B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);
+       color:var(--text);line-height:1.55;font-size:16px}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+  img{max-width:100%;height:auto;display:block}
+
+  header{background:var(--surface);border-bottom:1px solid var(--border);
+         position:sticky;top:0;z-index:10}
+  .nav{display:flex;align-items:center;gap:12px;padding:14px 0;flex-wrap:wrap}
+  .nav img{width:36px;height:36px}
+  .nav .name{font-size:20px;font-weight:700;color:var(--primary)}
+  .nav .spacer{flex:1}
+
+  .btn{display:inline-block;padding:12px 26px;border-radius:8px;font-weight:600;
+       text-decoration:none;font-size:16px;border:1px solid var(--border-strong);
+       background:var(--surface);color:var(--text)}
+  .btn:hover{background:var(--surface-alt)}
+  .btn.primary{background:var(--primary);border-color:var(--primary);color:#fff}
+  .btn.primary:hover{background:var(--primary-hover)}
+  .btn.small{padding:8px 18px;font-size:14px}
+
+  .hero-wrap{background:linear-gradient(180deg,#122036 0%,#0C1524 100%);color:#F0F4FA;
+    position:relative;isolation:isolate;overflow:hidden}
+  .hero{padding:72px 0 48px;text-align:center;position:relative}
+  /* The FinalDraw monogram — our own marks on a luxury-print lattice —
+     drifting slowly on the diagonal behind the hero. Low contrast on
+     purpose: it's a second-look detail; the video and buy button win the
+     first look. */
+  .hero-wrap::before{content:"";position:absolute;inset:-200px 0 0 0;z-index:-1;
+    background:url('assets/monogram.svg') repeat;background-size:200px 200px;
+    opacity:.09;animation:monoDrift 90s linear infinite;pointer-events:none;
+    -webkit-mask-image:radial-gradient(ellipse at 50% 30%,#000 30%,transparent 78%);
+            mask-image:radial-gradient(ellipse at 50% 30%,#000 30%,transparent 78%)}
+  @keyframes monoDrift{from{background-position:0 0}to{background-position:400px 400px}}
+  @media(prefers-reduced-motion:reduce){.hero-wrap::before{animation:none}}
+  .hero h1{font-size:clamp(28px,4.5vw,44px);line-height:1.15;font-weight:700;
+           max-width:820px;margin:0 auto 16px}
+  .hero p.sub{font-size:19px;color:var(--muted);max-width:680px;margin:0 auto 28px}
+  .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+  .cta-note{font-size:13px;color:var(--faint)}
+  .hero .strip{max-width:820px;margin:36px auto 0;background:var(--surface);
+               border:1px solid var(--border);border-radius:12px;padding:8px;
+               box-shadow:0 8px 30px rgba(22,32,42,.08)}
+  /* dark-hero overrides (must follow the base hero rules) */
+  .hero h1{color:#F0F4FA}
+  .hero p.sub{color:#B9C6D8}
+  .hero .cta-note{color:#8DA0BC}
+  .hero .btn{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.22);color:#F0F4FA}
+  .hero .btn:hover{background:rgba(255,255,255,.14)}
+  .hero .btn.primary{background:#2E6BE8;border-color:#2E6BE8;color:#fff}
+  .hero .btn.primary:hover{background:#2458C8}
+  .hero .strip{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.12);
+    box-shadow:0 20px 60px rgba(0,0,0,.45)}
+
+  section{padding:56px 0}
+  section.alt{background:var(--surface);border-top:1px solid var(--border);
+              border-bottom:1px solid var(--border)}
+  .kicker{font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--primary);
+          text-transform:uppercase;margin-bottom:8px}
+  h2{font-size:clamp(24px,3vw,32px);line-height:1.2;margin-bottom:14px}
+  .lead{font-size:17px;color:var(--muted);max-width:760px;margin-bottom:26px}
+
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  @media(max-width:860px){.split{grid-template-columns:1fr}}
+  .shot{background:var(--surface);border:1px solid var(--border);border-radius:12px;
+        padding:6px;box-shadow:0 8px 30px rgba(22,32,42,.08)}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:12px;
+        padding:22px}
+  section.alt .card{background:var(--bg)}
+  .card h3{font-size:17px;margin-bottom:6px}
+  .card p{font-size:15px;color:var(--muted)}
+
+  .price-box{max-width:520px;margin:0 auto;text-align:center;background:var(--surface);
+             border:1px solid var(--border);border-radius:16px;padding:38px 30px;
+             box-shadow:0 8px 30px rgba(22,32,42,.08)}
+  .price-box .amount{font-size:52px;font-weight:700;color:var(--success);line-height:1}
+  .price-box .per{color:var(--muted);margin:6px 0 18px}
+  .price-box ul{list-style:none;text-align:left;margin:0 auto 24px;max-width:340px}
+  .price-box li{padding:6px 0 6px 26px;position:relative;font-size:15px}
+  .price-box li::before{content:"✓";position:absolute;left:0;color:var(--success);
+                        font-weight:700}
+
+  .steps{counter-reset:s;max-width:640px;margin:0 auto}
+  .step{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--border)}
+  .step:last-child{border-bottom:none}
+  .step::before{counter-increment:s;content:counter(s);flex:0 0 32px;height:32px;
+                background:var(--primary);color:#fff;border-radius:50%;display:flex;
+                align-items:center;justify-content:center;font-weight:700}
+  .step div b{display:block;margin-bottom:2px}
+  .step div span{color:var(--muted);font-size:15px}
+
+  details{background:var(--surface);border:1px solid var(--border);border-radius:10px;
+          padding:16px 20px;margin-bottom:10px}
+  summary{font-weight:600;cursor:pointer}
+  details p{margin-top:10px;color:var(--muted);font-size:15px}
+
+  footer{padding:36px 0;border-top:1px solid var(--border);text-align:center;
+         color:var(--faint);font-size:14px}
+  footer a{color:var(--muted)}
+  .warnband{background:var(--warning-soft);border:1px solid #EAD9B0;color:#6B4A08;
+            border-radius:10px;padding:14px 18px;font-size:14px;max-width:760px;
+            margin:22px auto 0}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <img src="assets/icon.png" alt="">
+    <span class="name">FinalDraw</span>
+    <span class="spacer"></span>
+    <a class="btn small" href="guide.html" style="margin-right:6px">User guide</a>
+    <!-- TODO: replace href with your Lemon Squeezy checkout URL -->
+    <a class="btn primary small" href="#pricing">Buy — $299</a>
+  </div>
+</header>
+
+<div class="hero-wrap"><div class="hero wrap">
+  <h1>Turn a carrier estimate into a signed Certificate of Completion in about a minute.</h1>
+  <p class="sub">Your depreciation is sitting at the carrier because the certificate is
+     wrong, late, or unsigned. FinalDraw reads the estimate, gets the math right,
+     and produces the document that gets the money released.</p>
+  <div class="cta-row">
+    <!-- TODO: replace href with your Lemon Squeezy checkout URL -->
+    <a class="btn primary" href="#pricing">Buy FinalDraw — $299</a>
+    <a class="btn" href="https://github.com/Pitbully86/finaldraw-meta/releases/latest/download/FinalDraw-Setup.exe">Download free evaluation</a>
+  </div>
+  <div class="cta-note">One-time purchase · Windows 10/11 · Signed installer · No subscription</div>
+  <div class="strip">
+    <video controls playsinline preload="metadata" poster="assets/money_strip.png"
+           style="width:100%;height:auto;display:block;border-radius:8px;background:#0C1524">
+      <source src="assets/finaldraw-launch.mp4" type="video/mp4">
+      <img src="assets/money_strip.png"
+           alt="FinalDraw's money check: RCV minus ACV equals depreciation plus code items, reconciled">
+    </video>
+  </div>
+</div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">The math</div>
+    <h2>It gets the numbers right — and shows its work.</h2>
+    <p class="lead">Most certificates go out with the deductible double-counted or code
+       items buried in depreciation, and carriers bounce them. FinalDraw knows ACV
+       already includes the deductible, that recoverable depreciation is RCV minus
+       ACV, and that paid-when-incurred code items sit outside it. The whole equation
+       is on screen and turns green when it reconciles — before anything is sent.</p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="kicker">The differentiator</div>
+    <h2>Certify only the work you performed.</h2>
+    <p class="lead">Did the roof, but not the siding or gutters? Certifying the whole
+       claim asserts completion of work you didn't do. FinalDraw reads every line
+       item off the estimate — each with its own RCV, depreciation and ACV — so you
+       tick the items you performed and the certified figures are recalculated from
+       exactly those. Exact addition, not estimation. If the items don't add up to
+       the estimate's own stated total, FinalDraw refuses to guess.</p>
+    <div class="split">
+      <div class="shot"><img src="assets/scope.png"
+           alt="Scope selection: line items ticked as performed or declined, with running totals"></div>
+      <div class="shot"><img src="assets/certificate.png"
+           alt="A partial-scope Certificate of Completion stating what it covers and itemising the certified work"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <div class="kicker">Protection</div>
+        <h2>The declined-work acknowledgement.</h2>
+        <p class="lead">When a homeowner keeps the ACV money and skips part of the scope,
+           the withheld depreciation on that work is forfeited and a future claim on it
+           will likely be denied. FinalDraw generates a signed acknowledgement recording
+           that they were told — listing the declined items, the dollars forfeited, and
+           the consequences in plain words. The homeowner gets an informed choice in
+           writing. You get proof you certified only what you built.</p>
+      </div>
+      <div class="shot"><img src="assets/acknowledgement.png"
+           alt="Acknowledgement of Declined Repairs listing declined items and forfeited depreciation, with signature lines"></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="kicker">Everything else</div>
+    <h2>Built for how a restoration office actually works.</h2>
+    <div class="grid">
+      <div class="card"><h3>Reads the estimate</h3>
+        <p>Drop in the carrier PDF. Insured, claim, policy, dates and every dollar
+           figure are pulled out automatically — you check numbers instead of typing them.</p></div>
+      <div class="card"><h3>Your branding</h3>
+        <p>Logo, colours and wording. Save a template per carrier, or a simpler
+           version for mortgage companies.</p></div>
+      <div class="card"><h3>Sign it anywhere</h3>
+        <p>Homeowner signs on your laptop in the driveway — or email a signing link
+           through your own SignWell, BoldSign, Dropbox Sign or Zoho Sign account.</p></div>
+      <div class="card"><h3>One PDF to the carrier</h3>
+        <p>Attach the estimate, final invoice and photos so a single document goes
+           to the adjuster instead of four loose files.</p></div>
+      <div class="card"><h3>History &amp; duplicate warnings</h3>
+        <p>Every certificate is logged and searchable, and FinalDraw warns you before
+           a claim gets certified twice.</p></div>
+      <div class="card"><h3>Batch generate</h3>
+        <p>Point at a folder of estimates. Anything that doesn't reconcile is flagged
+           for review — never certified with guessed figures.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="try">
+  <div class="wrap" style="text-align:center">
+    <div class="kicker">Try it first</div>
+    <h2>The evaluation copy is the full product.</h2>
+    <p class="lead" style="margin-left:auto;margin-right:auto">Download it, drop in the
+       included sample claim — or one of your own — and run the whole flow. Evaluation
+       documents are watermarked and not for carrier submission; a licence removes the
+       watermark and puts your company name on every certificate.</p>
+    <a class="btn primary" href="https://github.com/Pitbully86/finaldraw-meta/releases/latest/download/FinalDraw-Setup.exe">Download FinalDraw for Windows</a>
+    <div class="cta-note" style="margin-top:10px">Digitally signed installer · installs per-user, no admin rights needed</div>
+  </div>
+</section>
+
+<section class="alt" id="pricing">
+  <div class="wrap">
+    <div class="price-box">
+      <div class="amount">$299</div>
+      <div class="per">one time — not a subscription</div>
+      <ul>
+        <li>Licensed to your company, on your certificates</li>
+        <li>No account, no monthly fee</li>
+        <li>Your data never leaves your office</li>
+        <li>Free evaluation before you pay</li>
+      </ul>
+      <!-- TODO: replace href with your Lemon Squeezy checkout URL -->
+      <a class="btn primary" href="#">Buy FinalDraw</a>
+    </div>
+
+    <div style="max-width:640px;margin:44px auto 0">
+      <h2 style="text-align:center;font-size:24px">How buying works</h2>
+      <div class="steps">
+        <div class="step"><div><b>Pay once</b>
+          <span>Checkout is handled by our payment partner — card, receipt and invoice included.</span></div></div>
+        <div class="step"><div><b>Get your key by email</b>
+          <span>Your receipt email includes a licence key. No waiting on us.</span></div></div>
+        <div class="step"><div><b>Paste it in and go</b>
+          <span>Open FinalDraw → Licence → paste the key → Activate. Your company name now
+          appears on every certificate. One key runs on one computer; move it to a new PC
+          any time from the same screen.</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap" style="max-width:760px">
+    <h2 style="text-align:center;margin-bottom:24px">Questions</h2>
+    <details><summary>Is this a subscription?</summary>
+      <p>No. $299 once, for the version you buy. Updates may be released at our
+         discretion; major new versions may be paid upgrades.</p></details>
+    <details><summary>Which carriers' estimates does it read?</summary>
+      <p>Estimates printed through Xactimate — the format used by most major carriers —
+         parse best, including full line-item detail. Other formats fall back to
+         entering the figures by hand, and the certificate math still applies.</p></details>
+    <details><summary>Does my claim data go to your servers?</summary>
+      <p>No. FinalDraw stores everything on your own PC. The only network connections
+         it makes are to an e-signature provider you configure with your own account.</p></details>
+    <details><summary>Can I move it to a new computer?</summary>
+      <p>Yes — remove the licence in the app, install on the new machine, and email us
+         the new Installation ID for a replacement licence.</p></details>
+    <details><summary>Is FinalDraw giving insurance or legal advice?</summary>
+      <p>No. It prepares documents from figures you review and approve. You remain
+         responsible for what you certify and for compliance with the laws of your
+         state — see the <a href="eula.html">licence agreement</a>.</p></details>
+  </div>
+  <div class="wrap">
+    <div class="warnband"><b>Built by a roofer, not a software company.</b>
+       FinalDraw was built inside Summit Roofing and Restoration in Atoka, Tennessee —
+       enough storm seasons to know exactly which line the adjuster is going to argue about.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    FinalDraw · © 2026 GMG 360 LLC ·
+    <a href="guide.html">User guide</a> ·
+    <a href="eula.html">Licence agreement</a> ·
+    <a href="mailto:justin@summitroofingandrestoration.com">justin@summitroofingandrestoration.com</a>
+  </div>
+</footer>
+
+</body>
+</html>

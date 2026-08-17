@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FinalDraw User Guide — every feature, step by step</title>
+<meta name="description" content="The complete FinalDraw guide: installing, activating, reading estimates, the money check, partial scope, e-signatures, email setup, batch runs and troubleshooting.">
+<link rel="icon" href="assets/icon.png">
+<style>
+  :root{
+    --bg:#F5F7F8; --surface:#FFFFFF; --surface-alt:#EDF1F4;
+    --text:#16202A; --muted:#5C6B7A; --faint:#8D9BA8;
+    --border:#DDE3E8; --border-strong:#C3CDD6;
+    --primary:#1F4E79; --primary-hover:#1A4267; --primary-soft:#E8EEF4;
+    --success:#147A5E; --success-soft:#E4F2ED;
+    --warning:#A8690B; --warning-soft:#FDF3E2;
+    --danger:#B4342B; --danger-soft:#FBEBEA;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);
+       color:var(--text);line-height:1.6;font-size:16px}
+  .wrap{max-width:840px;margin:0 auto;padding:0 24px}
+  img{max-width:100%;height:auto;display:block}
+
+  header{background:var(--surface);border-bottom:1px solid var(--border);
+         position:sticky;top:0;z-index:10}
+  .nav{display:flex;align-items:center;gap:12px;padding:14px 0;max-width:1060px;
+       margin:0 auto;padding-left:24px;padding-right:24px}
+  .nav img{width:36px;height:36px}
+  .nav .name{font-size:20px;font-weight:700;color:var(--primary)}
+  .nav .name a{color:var(--primary);text-decoration:none}
+  .nav .spacer{flex:1}
+  .nav a.back{font-size:14px;color:var(--muted)}
+
+  .hero{padding:48px 0 8px;}
+  .hero h1{font-size:clamp(26px,4vw,38px);line-height:1.15;margin-bottom:10px}
+  .hero p{font-size:17px;color:var(--muted);max-width:640px}
+
+  .toc{background:var(--surface);border:1px solid var(--border);border-radius:12px;
+       padding:22px 26px;margin:28px 0}
+  .toc b{display:block;margin-bottom:8px;font-size:14px;letter-spacing:.06em;
+         text-transform:uppercase;color:var(--primary)}
+  .toc ol{margin-left:20px;columns:2;column-gap:36px}
+  @media(max-width:700px){.toc ol{columns:1}}
+  .toc li{padding:3px 0;font-size:15px}
+  .toc a{color:var(--text);text-decoration:none}
+  .toc a:hover{color:var(--primary);text-decoration:underline}
+
+  section{padding:26px 0 6px}
+  h2{font-size:26px;line-height:1.2;margin:26px 0 12px;padding-top:18px;
+     border-top:2px solid var(--border)}
+  h3{font-size:18px;margin:22px 0 8px}
+  p{margin-bottom:12px;max-width:74ch}
+  ul,ol{margin:0 0 14px 24px}
+  li{margin-bottom:6px}
+  b{font-weight:600}
+  code{background:var(--surface-alt);border:1px solid var(--border);border-radius:5px;
+       padding:1px 7px;font-size:14px;font-family:Consolas,monospace}
+  a{color:var(--primary)}
+
+  .tip,.warn,.note{border-radius:10px;padding:13px 17px;margin:14px 0;font-size:15px;
+       max-width:74ch}
+  .tip{background:var(--success-soft);border:1px solid #BFE3D4}
+  .warn{background:var(--warning-soft);border:1px solid #EAD9B0;color:#6B4A08}
+  .note{background:var(--primary-soft);border:1px solid #C6D6EA}
+
+  table{border-collapse:collapse;margin:14px 0;font-size:15px;width:100%;max-width:74ch;
+        display:block;overflow-x:auto}
+  th,td{border:1px solid var(--border);padding:9px 13px;text-align:left;vertical-align:top}
+  th{background:var(--surface-alt);font-weight:600}
+  td b{white-space:nowrap}
+
+  .steps{counter-reset:s;margin:14px 0;max-width:74ch}
+  .step{display:flex;gap:14px;padding:10px 0}
+  .step::before{counter-increment:s;content:counter(s);flex:0 0 28px;height:28px;
+                background:var(--primary);color:#fff;border-radius:50%;display:flex;
+                align-items:center;justify-content:center;font-weight:700;font-size:14px;
+                margin-top:2px}
+  .step div b{display:block;margin-bottom:2px}
+  .step div span{color:var(--muted);font-size:15px}
+
+  footer{padding:36px 0;border-top:1px solid var(--border);text-align:center;
+         color:var(--faint);font-size:14px;margin-top:48px}
+  footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <img src="assets/icon.png" alt="">
+    <span class="name"><a href="index.html">FinalDraw</a></span>
+    <span class="spacer"></span>
+    <a class="back" href="index.html">← Back to finaldraw</a>
+  </div>
+</header>
+
+<div class="hero wrap">
+  <h1>The FinalDraw User Guide</h1>
+  <p>Everything the app does and how to use it — from first install to e-signed
+     certificates landing in the carrier's inbox. Written for a roofing office,
+     not an IT department.</p>
+</div>
+
+<div class="wrap">
+
+<div class="toc">
+  <b>In this guide</b>
+  <ol>
+    <li><a href="#install">Install FinalDraw</a></li>
+    <li><a href="#activate">Activate your license</a></li>
+    <li><a href="#flow">The three-step flow</a></li>
+    <li><a href="#open">Step 1 — Open an estimate</a></li>
+    <li><a href="#review">Step 2 — Review the fields</a></li>
+    <li><a href="#money">The Money Check, explained</a></li>
+    <li><a href="#scope">Partial scope — certify only your work</a></li>
+    <li><a href="#declined">Declined work &amp; the acknowledgement</a></li>
+    <li><a href="#branding">Templates &amp; branding</a></li>
+    <li><a href="#signing">Signatures in person</a></li>
+    <li><a href="#esign">E-signature setup (all four providers)</a></li>
+    <li><a href="#esign-send">Sending &amp; tracking e-signatures</a></li>
+    <li><a href="#email">Email setup (Gmail, Yahoo, Outlook…)</a></li>
+    <li><a href="#carrier-email">Emailing the carrier</a></li>
+    <li><a href="#attachments">Attachments</a></li>
+    <li><a href="#batch">Batch generation</a></li>
+    <li><a href="#history">History &amp; duplicate protection</a></li>
+    <li><a href="#updates">Updates</a></li>
+    <li><a href="#newpc">Moving to a new computer</a></li>
+    <li><a href="#data">Where your data lives</a></li>
+    <li><a href="#trouble">Troubleshooting</a></li>
+  </ol>
+</div>
+
+<section id="install">
+<h2>1. Install FinalDraw</h2>
+<div class="steps">
+  <div class="step"><div><b>Download the installer</b>
+    <span>Grab <code>FinalDraw-Setup.exe</code> from the download link on your receipt
+    or from the website. It is digitally signed by the publisher.</span></div></div>
+  <div class="step"><div><b>Run it</b>
+    <span>Double-click and follow the prompts. It installs for your Windows user only —
+    no administrator password needed, no IT ticket.</span></div></div>
+  <div class="step"><div><b>Launch from the Start Menu</b>
+    <span>Search for “FinalDraw.” First launch offers a guided tour and a sample claim —
+    both worth two minutes.</span></div></div>
+</div>
+<div class="note">If Windows shows a blue “Windows protected your PC” screen, click
+<b>More info → Run anyway</b>. That screen appears for newly published software until
+Microsoft has seen enough installs; the installer's digital signature (from the
+publisher) is intact either way — you can right-click the file → Properties →
+Digital Signatures to verify it.</div>
+</section>
+
+<section id="activate">
+<h2>2. Activate your license</h2>
+<p>Unlicensed, FinalDraw is a full working demo: everything functions, but every page
+of every PDF carries an <b>EVALUATION COPY</b> watermark, so it can't be used for real
+carrier submissions. A license removes the watermark and stamps <b>your company name</b>
+on every certificate instead.</p>
+<div class="steps">
+  <div class="step"><div><b>Open the license screen</b>
+    <span>Click <b>Activate licence</b> at the top right of the first screen.</span></div></div>
+  <div class="step"><div><b>Paste whatever you were sent</b>
+    <span>One box takes both kinds: the short license key from your purchase receipt,
+    or the whole <code>-----BEGIN FINALDRAW LICENCE-----</code> block if you were sent
+    one by email. Include the BEGIN and END lines when pasting a block.</span></div></div>
+  <div class="step"><div><b>Click Activate</b>
+    <span>The app figures out which kind you pasted. Keys are checked online; one key
+    activates one computer. Emailed licenses activate instantly, offline.</span></div></div>
+</div>
+<p>The title bar always shows your license state — “Licensed to Your Company” means
+you're set.</p>
+<div class="tip"><b>Buying by email instead of the website?</b> The license screen shows
+your <b>Installation ID</b> (like <code>A1B2-C3D4-E5F6-7890</code>). Send it with your
+company name and your license comes back locked to that computer.</div>
+</section>
+
+<section id="flow">
+<h2>3. The three-step flow</h2>
+<p>Everything in FinalDraw happens in three steps, shown in the sidebar:</p>
+<ul>
+  <li><b>Scope</b> — open the carrier's estimate PDF (or start blank).</li>
+  <li><b>Review</b> — check what was read, fix anything flagged, watch the Money Check
+      turn green.</li>
+  <li><b>Certificate</b> — generate the PDF, collect signatures, send it.</li>
+</ul>
+<p>New here? Click <b>Show me around</b> on the first screen for the guided tour, or
+<b>Load sample estimate</b> to run a fictional wind/hail claim end-to-end before
+trusting it with a real one.</p>
+</section>
+
+<section id="open">
+<h2>4. Step 1 — Open an estimate</h2>
+<p>Drag the carrier's estimate PDF onto the big drop zone, or click
+<b>Browse for a PDF…</b>. FinalDraw reads the insured's name, property address, claim
+and policy numbers, dates, and every dollar figure it can find, so you're checking
+numbers instead of typing them.</p>
+<h3>What it reads best</h3>
+<p>Estimates in the standard Xactimate layout — which is what nearly every major
+carrier sends. Some carrier formats read completely; others read partially and flag
+what needs a look. It never guesses silently.</p>
+<h3>Scanned or photographed estimates</h3>
+<p>If the PDF is a scan (a picture of paper, no real text inside), FinalDraw tells you
+and opens the blank form instead — type the fields off the paper. The math checking
+below works exactly the same.</p>
+<h3>No PDF at all?</h3>
+<p>Click <b>No estimate handy — enter the fields myself</b> at the bottom and fill the
+form in manually.</p>
+</section>
+
+<section id="review">
+<h2>5. Step 2 — Review the fields</h2>
+<p>Every field FinalDraw read is shown for review. Two things to know:</p>
+<ul>
+  <li><b>Amber “verify” flags</b> mean the app is not fully confident about that field —
+      it found something, but you should eyeball it against the estimate before
+      generating.</li>
+  <li><b>Amount Paid to Date and Remaining Balance are read-only.</b> They are computed
+      from the other figures (that's the whole point — they can't be typo'd).</li>
+</ul>
+<h3>It learns your carriers</h3>
+<p>When you correct a field and generate, FinalDraw remembers the correction <i>for that
+carrier</i>. Next State Farm estimate you open, your fix is applied automatically and
+marked so you can see it happened.</p>
+</section>
+
+<section id="money">
+<h2>6. The Money Check, explained</h2>
+<p>The dark panel at the bottom of the Review screen is the reason FinalDraw exists.
+It shows the whole payment equation and refuses to look right unless the figures
+actually reconcile:</p>
+<table>
+  <tr><th>Figure</th><th>What it means</th></tr>
+  <tr><td><b>RCV</b></td><td>Replacement Cost Value — the full approved amount.</td></tr>
+  <tr><td><b>ACV</b></td><td>Actual Cash Value — what the carrier paid up front.
+      <b>ACV already includes the deductible</b> and excludes recoverable
+      depreciation. Double-counting the deductible is the #1 reason carriers bounce
+      certificates.</td></tr>
+  <tr><td><b>Depreciation</b></td><td>Recoverable depreciation = RCV − ACV. This is the
+      money the certificate releases.</td></tr>
+  <tr><td><b>Code / PWI</b></td><td>Code-upgrade items the carrier pays only when
+      incurred. They sit <b>outside</b> depreciation, on their own line.</td></tr>
+  <tr><td><b>Balance due from carrier</b></td><td>RCV − ACV + PWI — depreciation plus
+      any code items. The number turns green when everything reconciles.</td></tr>
+</table>
+<p>If the depreciation you entered doesn't equal RCV − ACV, the panel flags it in red
+and explains which figure to re-check. Fix the numbers until it reads
+<b>✓ Reconciles</b> — then generate.</p>
+<h3>ACV policies (no replacement cost)</h3>
+<p>Some policies — common with farm-bureau and older homeowner policies — settle on
+<b>Actual Cash Value only</b>: the depreciation is <b>non-recoverable</b> and the
+carrier never pays it, so there is no final draw waiting on a certificate. FinalDraw
+reads this straight off the estimate (Xactimate prints it as
+“Less Non-recoverable Depreciation &lt;1,060.97&gt;” — angle brackets, not
+parentheses). When it finds one, it shows an amber <b>ACV policy</b> notice above the
+scope panel quoting the estimate's own summary lines as proof, the Money Check turns
+amber and relabels the total “Non-recoverable depreciation (not owed),” and the
+certificate's wording changes so it never claims a balance is due. Nothing else changes
+— you can still generate, sign and send; the certificate simply says what is true.</p>
+</section>
+
+<section id="scope">
+<h2>7. Partial scope — certify only the work you performed</h2>
+<p>Did the roof, but not the siding or gutters? Certifying the whole claim asserts
+completion of work you didn't do. Instead:</p>
+<div class="steps">
+  <div class="step"><div><b>Click “Choose scope” in the Scope panel</b>
+    <span>FinalDraw shows every line item it read off the estimate, grouped by section
+    (Roof, Siding, Gutters…), each with its own RCV, depreciation and ACV.</span></div></div>
+  <div class="step"><div><b>Tick what you performed</b>
+    <span>Tick whole sections or individual items. The certified figures are recalculated
+    from exactly those items — real addition, not percentages.</span></div></div>
+  <div class="step"><div><b>Apply</b>
+    <span>The certificate now names its scope, lists the certified work, and the money
+    fields reflect only your items. Clearing the scope puts the whole-claim figures
+    back.</span></div></div>
+</div>
+<div class="warn"><b>The safety gate:</b> before offering any line items, FinalDraw adds
+them all up and compares against the estimate's own stated totals. If they don't match
+to the penny, something was misread and the item picker refuses to hand you figures —
+enter the scope numbers manually instead. You will never bill from a bad parse.</div>
+<p>Code-upgrade (PWI) items are shown greyed in the picker: the estimate accounts for
+them separately, so they're never part of a scope subtotal. If none of your chosen
+sections carry code items, the claim's PWI is removed from your certificate — those
+code dollars belong to another trade's work.</p>
+</section>
+
+<section id="declined">
+<h2>8. Declined work &amp; the acknowledgement</h2>
+<p>When a homeowner keeps the ACV money and skips part of the scope — takes the interior
+painting money and spends it on the deck — two things are true that they usually don't
+know: the withheld depreciation on that work is <b>forfeited</b>, and a future claim on
+the never-repaired damage will likely be <b>denied</b>.</p>
+<p>In the scope picker, mark those items <b>Declined</b> instead of leaving them
+unticked. When you generate, FinalDraw produces a second one-page PDF alongside the
+certificate: the <b>Acknowledgement of Declined Repairs</b>. It lists the declined
+items, the dollars being forfeited, and the consequences in plain words, with a
+signature line for the homeowner.</p>
+<p><b>Have it signed.</b> It protects both sides: the homeowner gets an informed choice
+in writing, and you get proof you certified only what you built and told them the
+rest.</p>
+</section>
+
+<section id="branding">
+<h2>9. Templates &amp; branding</h2>
+<p>On the Review screen, the <b>Certificate template</b> picker controls how the PDF
+looks and reads. Click <b>Edit templates…</b> to open the editor:</p>
+<ul>
+  <li><b>Logo</b> — your company logo on the certificate header.</li>
+  <li><b>Colors and fonts</b> — match your brand.</li>
+  <li><b>Wording</b> — the certification paragraph, add or remove rows, rename labels.
+      Save as many named templates as you want (one per carrier, one for mortgage
+      companies, one plain).</li>
+  <li><b>Preview</b> — see the certificate before saving.</li>
+</ul>
+<p>The built-in <b>Default</b> template can't be edited — it's your known-good
+fallback.</p>
+<div class="note">Changing the template <b>after</b> capturing signatures clears them —
+the signature covers specific wording, so new wording means signing again. The app
+tells you when this happens.</div>
+</section>
+
+<section id="signing">
+<h2>10. Signatures in person</h2>
+<p>For the homeowner standing next to you: on the Review screen, click
+<b>Sign as Homeowner…</b> (or Contractor). They sign the pad with a mouse, finger or
+stylus, type their legal name, and tick the consent box. The signature is embedded in
+the certificate with a full audit record — who, when, and a fingerprint of the exact
+claim values being signed.</p>
+<p><b>If any money figure changes after signing, the signatures clear automatically.</b>
+A signature on numbers that later changed is worthless; FinalDraw won't let that
+happen by accident.</p>
+</section>
+
+<section id="esign">
+<h2>11. E-signature setup</h2>
+<p>For homeowners who aren't in the room, FinalDraw emails the certificate out for
+legally binding e-signature through <b>your own e-signature account</b>. Bring your own
+provider means the envelopes bill to your account, your branding is on the emails, and
+your documents never pass through anyone else's hands.</p>
+<p>Click <b>E-signature…</b> on the first screen, pick your provider, and fill in the
+credentials. They're encrypted with Windows' own protection (DPAPI) and never leave
+your PC. Use <b>Test connection</b> before saving — it tells you immediately whether
+the credentials work.</p>
+
+<h3>SignWell (easiest start — free tier)</h3>
+<ol>
+  <li>Create an account at signwell.com. Free tier covers 3 documents a month;
+      paid from ~$10/month.</li>
+  <li>In SignWell: <b>Settings → API</b> → copy the <b>API key</b>.</li>
+  <li>In FinalDraw: choose SignWell, paste the key, Test connection, Save.</li>
+</ol>
+
+<h3>BoldSign</h3>
+<ol>
+  <li>Create an account at boldsign.com (from ~$30/month for 50 documents — the value
+      pick above ~40 docs/month).</li>
+  <li>In BoldSign: <b>Settings → API → API Key</b> → copy it.</li>
+  <li>In FinalDraw: choose BoldSign, paste, Test connection, Save.</li>
+</ol>
+
+<h3>Dropbox Sign (formerly HelloSign)</h3>
+<ol>
+  <li>Create an account at sign.dropbox.com (API plans from ~$100/month).</li>
+  <li>In Dropbox Sign: <b>Settings → API → API Key</b> → copy it.</li>
+  <li>In FinalDraw: choose Dropbox Sign, paste, Test connection, Save.</li>
+</ol>
+
+<h3>Zoho Sign (four values instead of one — five extra minutes)</h3>
+<ol>
+  <li>In FinalDraw, set <b>Data centre</b> to the region your Zoho account lives in
+      (<code>com</code> for the US).</li>
+  <li>Go to the <b>Zoho API Console</b> (api-console.zoho.com) → <b>Add Client →
+      Self Client</b>. Copy the <b>Client ID</b> and <b>Client secret</b> into
+      FinalDraw.</li>
+  <li>Still in the Self Client, open the <b>Generate Code</b> tab. Scope:
+      <code>ZohoSign.documents.ALL</code>. Generate the code, then exchange it for a
+      <b>refresh token</b> (the console walks you through it). Paste the refresh token
+      into FinalDraw — it stays valid until you revoke it.</li>
+  <li>Test connection, Save.</li>
+</ol>
+</section>
+
+<section id="esign-send">
+<h2>12. Sending &amp; tracking e-signatures</h2>
+<div class="steps">
+  <div class="step"><div><b>Generate the certificate</b>
+    <span>Finish the Review screen and click Generate certificate.</span></div></div>
+  <div class="step"><div><b>Click “Email for signature”</b>
+    <span>On the success screen. Confirm the homeowner's name and email address, add a
+    message if you like, and send. The envelope goes out from your provider account
+    with a signature box placed for each signer.</span></div></div>
+  <div class="step"><div><b>Track it in History</b>
+    <span>The History screen shows a Signature column for every sent certificate:
+    sent → awaiting signature → signed. Click <b>Check signature status</b> any time;
+    when it's signed, FinalDraw downloads the executed copy right next to your
+    original, named <code>…-signed.pdf</code>.</span></div></div>
+</div>
+</section>
+
+<section id="email">
+<h2>13. Email setup — no server names required</h2>
+<p>FinalDraw sends certificates two ways, and picks the best one available
+automatically:</p>
+<h3>If you use classic Outlook (the desktop program)</h3>
+<p>No setup at all. FinalDraw opens a ready-to-send message <b>in your Outlook</b> —
+addressed, subject filled, certificate attached. You read it and press Send yourself.
+Nothing ever goes out without you seeing it.</p>
+<h3>Everyone else: pick your provider, paste one password</h3>
+<div class="steps">
+  <div class="step"><div><b>Open Email settings</b>
+    <span>The first time you try to email a certificate without Outlook, FinalDraw
+    offers to set this up. Pick your provider by name: <b>Gmail, Outlook.com, Yahoo,
+    Microsoft 365, or Other</b>. The server details fill themselves in.</span></div></div>
+  <div class="step"><div><b>Get an app password</b>
+    <span>Gmail, Yahoo and Outlook.com don't allow your normal password in apps —
+    they issue a special “app password” instead. FinalDraw links you straight to the
+    right page for your provider (for Gmail it's
+    <code>myaccount.google.com/apppasswords</code> — requires 2-step verification to be
+    on). Create one named “FinalDraw” and paste it in. Spaces are fine; they're cleaned
+    up automatically.</span></div></div>
+  <div class="step"><div><b>Send a test</b>
+    <span>The settings screen can send a test message to yourself. If it arrives,
+    you're done — forever. FinalDraw remembers everything (the password is encrypted
+    on your PC).</span></div></div>
+</div>
+<table>
+  <tr><th>Provider</th><th>App password page</th></tr>
+  <tr><td><b>Gmail / Google Workspace</b></td><td>myaccount.google.com/apppasswords
+      (turn on 2-Step Verification first)</td></tr>
+  <tr><td><b>Outlook.com / Hotmail</b></td><td>account.live.com/proofs/AppPassword</td></tr>
+  <tr><td><b>Yahoo</b></td><td>login.yahoo.com/account/security/app-passwords</td></tr>
+  <tr><td><b>Microsoft 365 (business)</b></td><td>Usually your normal password works; if
+      not, your admin may need to enable “SMTP AUTH” for your mailbox.</td></tr>
+</table>
+</section>
+
+<section id="carrier-email">
+<h2>14. Emailing the carrier</h2>
+<p>After generating, click <b>Email to carrier</b>. FinalDraw drafts the whole email:
+the certificate attached, a clean claim summary as the body, and — this is the good
+part — <b>the To: address usually already filled in</b>. Where does it come from?</p>
+<ul>
+  <li><b>Off the estimate itself.</b> Carriers print their claims email on their own
+      documents; FinalDraw finds it while reading the estimate. An address from this
+      claim's own paperwork is the most reliable one there is.</li>
+  <li><b>From the carrier directory.</b> FinalDraw ships knowing some carriers' claims
+      addresses and <b>learns yours as you go</b> — send to a carrier once, tick
+      “remember,” and it's filled in on every future claim with them. The directory is
+      editable under the History screen if an address changes.</li>
+</ul>
+<p>Addresses that haven't been confirmed yet are marked so you know to double-check
+the first time. Review the draft, press send.</p>
+</section>
+
+<section id="attachments">
+<h2>15. Attachments — one PDF to the carrier</h2>
+<p>Adjusters lose separate files. On the Review screen, use <b>Attach documents…</b> to
+add the carrier's estimate, your final invoice, and job photos. They're appended to the
+certificate as additional pages — photos get captions — so the carrier receives
+<b>one PDF</b> with everything in it. Anything unsupported is skipped and reported,
+never silently dropped.</p>
+</section>
+
+<section id="batch">
+<h2>16. Batch generation</h2>
+<p>End of the storm season with a folder of finished claims? Click
+<b>Batch generate…</b> on the first screen:</p>
+<ol>
+  <li>Point at the folder of estimate PDFs.</li>
+  <li>Choose where certificates should be saved.</li>
+  <li>Run it. Every estimate that reads cleanly and reconciles becomes a certificate.</li>
+</ol>
+<p>Anything that doesn't reconcile, or is missing an insured name or claim number, is
+<b>reported for review instead of generated</b> — batch mode never guesses at money.
+“Skip claims that already have a certificate” is on by default, so re-running a folder
+is safe.</p>
+</section>
+
+<section id="history">
+<h2>17. History &amp; duplicate protection</h2>
+<p><b>History</b> (first screen, top right) lists every certificate you've ever
+generated — searchable by name, claim number, carrier, or address — with the insured,
+date, balance due, and signature status on every row. From there you can reopen the
+PDF, check e-signature status, and manage the carrier email directory.</p>
+<p>The <b>Filed</b> column answers the question every office asks at month end:
+<i>did this one actually go to the carrier?</i> Emailing the certificate from
+FinalDraw records it automatically with the date; for ones you sent through a portal
+or by mail, select the row and click <b>Mark as filed</b>. Anything still showing
+“—” in that column is a certificate — and a check — that never went out.</p>
+<p>If you start a certificate for a claim that already has one, FinalDraw warns you
+with the date and file name of the existing one before you generate — and even if you
+proceed, it <b>never overwrites</b>: new files get a numbered suffix.</p>
+</section>
+
+<section id="updates">
+<h2>18. Updates</h2>
+<p>FinalDraw checks for updates in the background when it starts. When one is
+available, a banner appears on the first screen: <b>Install now</b> downloads it,
+verifies it's genuinely from the publisher, installs, and relaunches — under a minute,
+license and settings untouched. <b>Later</b> dismisses it until next launch. Updates
+are free.</p>
+</section>
+
+<section id="newpc">
+<h2>19. Moving to a new computer</h2>
+<ol>
+  <li>On the old PC: open the license screen and click <b>Remove licence</b>. This
+      frees your activation.</li>
+  <li>On the new PC: install FinalDraw, paste the same license key, Activate.</li>
+</ol>
+<p>Old computer died before you could remove the license? Reply to your purchase
+receipt and the activation will be reset for you.</p>
+</section>
+
+<section id="data">
+<h2>20. Where your data lives</h2>
+<p><b>On your PC, and nowhere else.</b> FinalDraw has no cloud, no account, and no
+telemetry on your claims. Certificates save where you choose. Settings, templates,
+history and the carrier directory live in <code>%APPDATA%\FinalDraw</code> — include
+that folder in your normal computer backup and you can restore everything.</p>
+<p>The only network traffic: license checks, the update check, and — only when you use
+them — your own e-signature provider and your own email account.</p>
+</section>
+
+<section id="trouble">
+<h2>21. Troubleshooting</h2>
+<h3>“This looks like a scanned document”</h3>
+<p>The PDF is a picture, not text. Enter the fields manually — the math checks work
+the same. Ask the carrier or your rep for the emailed PDF version when possible.</p>
+<h3>The Money Check won't turn green</h3>
+<p>Read its note — it names the mismatch. The usual culprit: the estimate quotes
+“net ACV” somewhere, or the deductible got subtracted twice. Remember the rules: ACV
+already contains the deductible; depreciation must equal RCV − ACV.</p>
+<h3>The scope picker says “Cannot use”</h3>
+<p>The line items didn't add up to the estimate's own totals, so FinalDraw refuses to
+offer them (see section 7). Enter the scope figures manually — and if you can, send
+the estimate's carrier name to support so the parser learns that format.</p>
+<h3>“Outlook could not be driven”</h3>
+<p>You have the <b>new</b> Outlook app, which doesn't allow other programs to compose
+in it. Use the provider-based email setup instead (section 13) — two minutes, works
+forever.</p>
+<h3>Gmail won't give me an app password</h3>
+<p>App passwords require <b>2-Step Verification</b> to be on first:
+myaccount.google.com/security → 2-Step Verification → then the app passwords page will
+appear.</p>
+<h3>My license says “deactivated” or “could not verify”</h3>
+<p>Key-based licenses re-check themselves when online. “Could not verify recently” just
+means connect to the internet sometime soon. “Deactivated by the publisher” means the
+license was refunded or revoked — reply to your receipt if that's a surprise.</p>
+<h3>Something else</h3>
+<p>Email <a href="mailto:justin@summitroofingandrestoration.com">support</a> with the
+claim's carrier and a description. Real answers from the people who built it.</p>
+</section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    FinalDraw · © 2026 GMG 360 LLC ·
+    <a href="index.html">Home</a> ·
+    <a href="eula.html">Licence agreement</a> ·
+    <a href="mailto:justin@summitroofingandrestoration.com">justin@summitroofingandrestoration.com</a>
+  </div>
+</footer>
+
+</body>
+</html>
