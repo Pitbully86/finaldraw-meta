@@ -1,10 +1,11 @@
 {
   "payload": {
-    "notes": "ACV certificates show Net Claim Remaining and Prior Payments as the estimate states them.",
-    "published": "2026-08-15",
-    "sha256": "17f8b0ec6f9f1eb74cc1ada9b613205c3cb7c8bd833b2892f1c21325971d0be7",
-    "url": "https://github.com/Pitbully86/finaldraw-meta/releases/download/v1.13.4/FinalDraw-Setup-1.13.4.exe",
-    "version": "1.13.4"
+    "notes": "Requested Supplement Amount: type the supplement and it is added to the Remaining Balance Due on the certificate. New office certificate layout.",
+    "published": "2026-10-29",
+    "sha256": "2772167db78e753c705dd2a98097b3aa367694241b3fd25e91b319d0bf2f99ce",
+    "type": "update-manifest",
+    "url": "https://github.com/Pitbully86/finaldraw-meta/releases/download/v1.14.0/FinalDraw-Setup-1.14.0.exe",
+    "version": "1.14.0"
   },
-  "signature": "zSU+7ettwr8F+AwqF0Q61r21WlCldVawM2PZ9oulfQRogPzyzNOK1rcsHejyBA7bI//r3AqAV48mMHwOifp7CA=="
+  "signature": "ueHbAMilNcp8+fk7r8H1AFH6NTxOVI9htSq1uh1lepdgXjJe/DpO9f58zWer1JADNxrxHHeFaXABS2n7vkyNBA=="
 }
